@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600&family=Merriweather:wght@300;400&display=swap');
+
+:root {
+    --purple-dark: #331D4A;
+    --purple-bright: #6A37A6;
+    --purple-lite: #554266;
+    --grey: #7B7B7B;
+    --grey-lite: #EDEDED;
+    --grey-lite-alt: #F1F1ED;
+    --orange: #F1833A;
+    --teal: #458FA3;
+    --teal-dark: #347182;
+    --grey-dark: #5A5A5D;
+    --black: #333;
+    --white: #fff;
+    --white-txt: #fff;
+    --white-bg: #fff;
+    --grey-c: #CCCCCC;
+    --grey-d: #DDDDDD;
+    --green: #45a36d;
+    --red: #cd5151;
+    --tab-bg: #f7f7f7;
+    --headings: 'Merriweather', serif;
+    --text: 'Montserrat', sans-serif;
+    --extra-thin: 100;
+    --thin: 200;
+    --normal: 300;
+    --semi-bold: 500;
+    --bold: 600;
+    --font-size-base: 22px;
+    --font-size-large: 28px;
+    --font-size-xlarge: 42px;
+    --font-size-giant: 60px;
+}
+
+body {
+    font-family: var(--text);
+    font-weight: var(--normal);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--black);
+    background-color: var(--white-bg);
+    font-size: var(--font-size-base);
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+}
+
+h1, h2, h3 {
+    font-family: var(--headings);
+    font-weight: var(--normal);
+    margin: 0;
+    font-size: var(--font-size-xlarge);
+}
+
+h4, h5, h6 {
+    font-family: var(--text);
+    font-weight: var(--semi-bold);
+    font-size: var(--font-size-large);
+}
+
+a {
+    color: var(--purple-bright);
+    font-weight: var(--bold);
+    text-decoration: none;
+}
+
+.button {
+    cursor: pointer;
+    padding: 9px 12px;
+    margin-left: auto;
+    border: 0;
+    border-radius: 4px;
+    color: var(--white-txt);
+    font-family: var(--text);
+    font-weight: var(--semi-bold);
+    font-size: var(--font-size-base);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+input, textarea, select {
+    padding: 7px;
+    border-radius: 7px;
+    border: 1px solid var(--purple-bright);
+    color: var(--purple-bright);
+    font-family: var(--headings);
+    font-size: var(--font-size-base);
+    background-color: var(--white-bg);
+}
+
+.button-large {
+    padding: 12px 16px;
+    font-size: var(--font-size-large);
+    font-weight: var(--bold);
+}
+
+.button-edit {
+    background-color: var(--purple-bright);
+}
+
+.button-danger {
+    background-color: var(--red);
+}
+
+.button-cancel, .copy-link-button, .button-grey {
+    background-color: var(--grey);
+}
+
+.button-save {
+    background-color: var(--orange);
+}
+
+.hero-section {
+    position: relative;
+    background: var(--purple-dark);
+    background-size: cover;
+    padding: 120px 20px;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content {
+    align-self: flex-end;
+    flex-direction: column;
+    flex-basis: auto;
+    margin-left: 60px;
+}
+
+.hero-container {
+    max-width: 67%;
+    text-align: left;
+    margin-right: 0;
+}
+
+.hero-container h1 {
+    font-size: var(--font-size-giant);
+    line-height: 72px;
+}
+
+.hero-section p {
+    font-size: var(--font-size-large);
+    font-weight: var(--extra-thin);
+    line-height: 38px;
+    font-family: 'Montserrat', sans-serif; /* Ensure font is applied */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 28px;
+    color: var(--white-txt);
+    background-color: var(--orange);
+    font-family: var(--text);
+    font-size: 18px ;
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: var(--purple-bright);
+}
+
+.section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section h2 {
+    line-height: 46px;
+}
+
+.section:nth-child(even) {
+    background-color: var(--purple-dark);
+    color: var(--white);
+}
+
+.section:nth-child(even) h2 {
+    color: var(--orange);
+}
+
+.section:nth-child(odd) {
+    background-color: var(--grey-lite);
+    color: var(--black);
+}
+
+.section:nth-child(odd) h2 {
+    color: var(--purple-bright);
+}
+
+.problem-statement {
+    position: relative;
+    background: var(--purple-dark) url('../img/pre-hire-assessment-hero-bg-image.jpg') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+}
+
+.problem-statement::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 29, 74, 0.8); /* Adding a dark purple overlay with 70% opacity */
+    z-index: 1;
+}
+
+.problem-statement h2,
+.problem-statement p,
+.problem-statement .checklist,
+.problem-statement .section-image {
+    position: relative;
+    z-index: 2;
+}
+
+.checklist, .benefits {
+    font-size: var(--font-size-large);
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+}
+
+.checklist li {
+    margin: 5px 0;
+}
+
+.benefits, .steps {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li, .steps li {
+    margin: 5px 0;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 20px auto;
+    padding-left: 20px;
+    border-left: 5px solid var(--orange);
+    max-width: 600px;
+}
+
+.section-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accent-primary {
+    color: var(--purple-bright);
+}
+
+.accent-secondary {
+    color: var(--orange);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-image {
+        margin: 10px 0;
+    }
+}
