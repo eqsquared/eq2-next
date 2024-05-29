@@ -27,7 +27,9 @@
     --normal: 300;
     --semi-bold: 500;
     --bold: 600;
-    --font-size-base: 22px;
+    --font-size-tiny: 13px;
+    --font-size-small: 15px;
+    --font-size-base: 18px;
     --font-size-large: 28px;
     --font-size-xlarge: 42px;
     --font-size-giant: 60px;
@@ -115,11 +117,50 @@ input, textarea, select {
     background-color: var(--orange);
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey-lite);
+    padding: 20px;
+}
+
+.header .logo img {
+    height: 80px;
+}
+
+.header .nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header .nav ul li {
+    margin: 0 15px;
+}
+
+.header .nav ul li a {
+    text-decoration: none;
+    color: var(--purple-bright);
+    font-weight: var(--normal);
+    text-transform: uppercase;
+    font-size: var(--font-size-base);
+}
+
+.header .header-cta .header-cta-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: var(--thin);
+    font-size: var(--font-size-small);
+}
+
 .hero-section {
     position: relative;
     background: var(--purple-dark);
     background-size: cover;
-    padding: 120px 20px;
+    padding: 80px 20px 120px 20px;
     text-align: center;
     color: var(--white);
 }
@@ -265,6 +306,26 @@ blockquote {
 
 .accent-secondary {
     color: var(--orange);
+}
+
+.final-cta {
+    background-color: var(--purple-lite);
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.final-cta h2 {
+    margin-bottom: 20px;
+}
+
+.final-cta .cta-button {
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: var(--semi-bold);
 }
 
 /* Responsive adjustments */
