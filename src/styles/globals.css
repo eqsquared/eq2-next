@@ -196,7 +196,7 @@ input, textarea, select {
 
 .problem-statement {
     position: relative;
-    background: var(--purple-dark) url('../img/pre-hire-assessment-hero-bg-image.jpg') no-repeat center center;
+    background: var(--purple-dark) url('/img/pre-hire-assessment-hero-bg-image.jpg') no-repeat center center;
     background-size: cover;
     color: var(--white);
 }
