@@ -1,17 +1,5 @@
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
-    return (
-        <>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-        </>
-    );
-}
-
-export default MyApp;
-
 const Header = () => (
     <header className="header">
         <div className="logo">
@@ -31,8 +19,20 @@ const Header = () => (
 );
 
 const Footer = () => (
-    <footer className="final-cta">
+    <footer className="final-cta section">
         <h2>Ready To Revolutionize Your Hiring Process?</h2>
         <a href="#" className="cta-button">Get Started Now</a>
     </footer>
 );
+
+function MyApp({ Component, pageProps }) {
+    return (
+        <>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+        </>
+    );
+}
+
+export default MyApp;
