@@ -1,6 +1,51 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
+
+function updateValue(id, value) {
+    document.getElementById(`${id}-value`).innerText = value;
+    calculateROI();
+}
+
+function calculateTurnoverCost(salary) {
+    if (salary <= 40000) return salary * 0.5;
+    if (salary <= 60000) return ((salary - 40000) / 20000 * 100) + 50;
+    if (salary <= 90000) return ((salary - 60000) / 30000 * 50) + 150;
+    if (salary <= 150000) return ((salary - 90000) / 60000 * 100) + 200;
+    return salary * 5;
+}
+
+function calculateROI() {
+    const numEmployees = parseInt(document.getElementById('num-employees').value);
+    const numHires = parseInt(document.getElementById('num-hires').value);
+    const avgSalary = parseInt(document.getElementById('avg-salary').value);
+    const annualSales = parseInt(document.getElementById('annual-sales').value);
+
+    const turnoverCost = calculateTurnoverCost(avgSalary);
+    const badHireCost = turnoverCost * 1.75;
+
+    const totalBadHireCost = badHireCost * numHires;
+    const totalTurnoverCost = turnoverCost * numEmployees * 0.01;
+
+    const lossOfSales = annualSales * 0.07;
+    const increasedSickDaysCost = numEmployees * avgSalary / 260 * .1;
+    const productivityLossCost = numEmployees * avgSalary * 0.03;
+    const higherTurnoverCost = turnoverCost * numEmployees * 0.02;
+
+    const totalLeadershipCost = lossOfSales + increasedSickDaysCost + productivityLossCost + higherTurnoverCost;
+    const totalPotentialSavings = totalBadHireCost + totalTurnoverCost + totalLeadershipCost;
+
+    const softwareCost = 20000; // Annual cost of your software
+    const roi = ((totalPotentialSavings - softwareCost) / softwareCost) * 100;
+
+    document.getElementById('potential-savings').innerText = `$${totalPotentialSavings.toFixed(2)}`;
+    document.getElementById('roi').innerText = `${roi.toFixed(2)}%`;
+}
 
 export default function Home() {
+    useEffect(() => {
+        calculateROI(); // Initial calculation
+    }, []);
+
     return (
         <div>
             <Head>
@@ -25,8 +70,37 @@ export default function Home() {
                     <li>✅ Trusted Your Gut</li>
                     <li>❌ Huge Disappointment</li>
                 </ul>
-                <p>Resumes can deceive, interviews reveal only so much, and our intuition isn't scalable or
-                    even as reliable as we think.</p>
+                <p>Resumes can deceive, interviews reveal only so much, and our intuition isn't scalable or even as reliable as we think.</p>
+            </section>
+
+            <section className="roi section">
+                <div className="roi-calculator">
+                    <h2>Calculate Your ROI</h2>
+                    <label htmlFor="num-employees">Number of Employees:</label>
+                    <input type="range" id="num-employees" name="num-employees" min="0" max="1000" defaultValue="100"
+                           onInput={(e) => updateValue('num-employees', e.target.value)} />
+                    <span id="num-employees-value">100</span>
+
+                    <label htmlFor="num-hires">Number of New Hires Next Year:</label>
+                    <input type="range" id="num-hires" name="num-hires" min="0" max="100" defaultValue="10"
+                           onInput={(e) => updateValue('num-hires', e.target.value)} />
+                    <span id="num-hires-value">10</span>
+
+                    <label htmlFor="avg-salary">Average Annual Salary ($):</label>
+                    <input type="range" id="avg-salary" name="avg-salary" min="30000" max="300000" step="1000"
+                           defaultValue="60000" onInput={(e) => updateValue('avg-salary', e.target.value)} />
+                    <span id="avg-salary-value">$60,000</span>
+
+                    <label htmlFor="annual-sales">Annual Sales ($):</label>
+                    <input type="range" id="annual-sales" name="annual-sales" min="100000" max="100000000" step="100000"
+                           defaultValue="1000000" onInput={(e) => updateValue('annual-sales', e.target.value)} />
+                    <span id="annual-sales-value">$1,000,000</span>
+                </div>
+
+                <div className="roi-results">
+                    <h3>Potential Annual Savings: <span id="potential-savings">$0.00</span></h3>
+                    <h3>Projected ROI: <span id="roi">0%</span></h3>
+                </div>
             </section>
 
             <section className="solution-overview section">

@@ -328,6 +328,33 @@ blockquote {
     font-weight: var(--semi-bold);
 }
 
+.roi-calculator {
+    margin: 20px 0;
+}
+
+.roi-calculator label {
+    display: block;
+    margin-top: 10px;
+}
+
+.roi-calculator input[type="range"] {
+    width: 100%;
+}
+
+.roi-calculator span {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.roi-results {
+    margin-top: 20px;
+}
+
+.roi-results h3 {
+    margin: 10px 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .section-image {
